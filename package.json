@@ -4,7 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx standard",
+    "lint:fix": "npx standard --fix",
+    "pretest": "webdriver-manager update",
+    "test": "npm run test:chrome && npm run test:firefox",
+    "test:chrome": "protractor configs/chromeConfig.js",
+    "test:firefox": "protractor configs/firefoxConfig.js"
+  },
+  "standard": {
+    "globals": [
+      "beforeAll",
+      "beforeEach",
+      "browser",
+      "by",
+      "describe",
+      "element",
+      "expect",
+      "it"
+    ]
   },
   "keywords": [],
   "author": "",
